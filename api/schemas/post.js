@@ -32,11 +32,6 @@ export default {
 			},
 		},
 		{
-			name: "description",
-			title: "Description",
-			type: "string",
-		},
-		{
 			name: "userId",
 			title: "User ID",
 			type: "string",
