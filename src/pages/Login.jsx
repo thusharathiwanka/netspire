@@ -1,11 +1,15 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { FcGoogle } from "react-icons/fc";
 
 import loginVideo from "../assets/videos/login-movie.mp4";
 import logo from "../assets/images/netspire-logo-white.png";
 
+import { client } from "../config/sanity.client";
+
 const Login = () => {
+  const navigate = useNavigate();
+
   const handleGoogleLogin = (response) => {
     localStorage.setItem("user", JSON.stringify(response.profileObj));
 
@@ -16,7 +20,15 @@ const Login = () => {
       userName: name,
       image: imageUrl
     };
-    console.log(document);
+
+    client
+      .createIfNotExists(document)
+      .then(() => {
+        navigate("/", { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
