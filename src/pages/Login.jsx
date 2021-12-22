@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
 import loginVideo from "../assets/videos/login-movie.mp4";
