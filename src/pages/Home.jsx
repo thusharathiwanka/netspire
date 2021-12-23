@@ -38,7 +38,7 @@ const Home = () => {
         <Sidebar user={user && user} toggleSidebar={toggleSidebar} />
       </div>
       <div className="md:hidden flex flex-row">
-        <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
+        <div className="p-2 w-full flex flex-row justify-between items-center shadow-sm">
           <HiMenuAlt1
             className="cursor-pointer"
             fontSize={40}
