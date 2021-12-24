@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { BiHomeAlt } from "react-icons/bi";
+import { RiHomeLine } from "react-icons/ri";
 
 import logo from "../assets/images/netspire-logo-blue.png";
 
@@ -7,7 +7,7 @@ const Sidebar = ({ user, toggleSidebar }) => {
   const isNotActiveStyles =
     "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
   const isActiveStyles =
-    "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black text-gray-500 transition-all duration-200 ease-in-out capitalize";
+    "flex items-center px-5 gap-3 font-bold border-r-4 border-black text-gray-500 transition-all duration-200 ease-in-out capitalize";
   const categories = [
     { name: "animals" },
     { name: "wallpapers" },
@@ -24,14 +24,14 @@ const Sidebar = ({ user, toggleSidebar }) => {
           to="/"
           className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
           onClick={() => toggleSidebar(false)}>
-          <img src={logo} alt="logo" className="w-full" />
+          <img src={logo} alt="logo" className="w-full mb-4" />
         </Link>
         <div className="flex flex-col gap-5">
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? isActiveStyles : isNotActiveStyles)}
             onClick={() => toggleSidebar(false)}>
-            <BiHomeAlt />
+            <RiHomeLine fontSize={20} />
             Home
           </NavLink>
           <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover Categories</h3>

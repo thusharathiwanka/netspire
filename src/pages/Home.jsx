@@ -9,15 +9,14 @@ import UserProfile from "./UserProfile";
 import logo from "../assets/images/netspire-logo-blue.png";
 import { client } from "../config/sanity.client";
 import { userQuery } from "../utils/query";
+import { getUserInfo } from "../utils/fetchLocalStorage";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState(null);
   const scrollRef = useRef(null);
 
-  const userInfo = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : localStorage.clear();
+  const userInfo = getUserInfo();
 
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);

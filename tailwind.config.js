@@ -42,12 +42,14 @@ module.exports = {
         lightGray: "#F1EFEE",
         primary: "#FAFAFA",
         secColor: "#efefef",
-        navColor: "#BEBEBE"
+        navColor: "#BEBEBE",
+        accent: "#232D3C"
       },
       backgroundColor: {
         mainColor: "#FBF8F9",
         secondaryColor: "#F0F0F0",
-        blackOverlay: "rgba(0, 0 ,0 ,0.6)"
+        blackOverlay: "rgba(0, 0 ,0 ,0.6)",
+        accent: "#232D3C"
       },
       keyframes: {
         "slide-in": {

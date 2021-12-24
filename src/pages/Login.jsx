@@ -26,8 +26,8 @@ const Login = () => {
       .then(() => {
         navigate("/", { replace: true });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
