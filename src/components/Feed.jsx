@@ -7,10 +7,10 @@ import { client } from "../config/sanity.client";
 import { postsQuery, searchQuery } from "../utils/query";
 
 const Feed = () => {
-  const { id } = useParams();
-
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(false);
+
+  const { id } = useParams();
 
   useEffect(() => {
     if (id) {
