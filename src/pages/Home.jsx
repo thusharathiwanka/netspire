@@ -48,11 +48,11 @@ const Home = () => {
             <img src={logo} alt="logo" className="w-32" />
           </Link>
           <Link to={`/user/${user?._id}`}>
-            <img src={user?.image} alt="logo" className="w-16 rounded-full p-2" />
+            <img src={user?.image} alt="user" className="w-16 rounded-full p-2" />
           </Link>
         </div>
         {toggleSidebar && (
-          <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+          <div className="fixed w-4/6 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2">
               <IoClose
                 className="cursor-pointer"
