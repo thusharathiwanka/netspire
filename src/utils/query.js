@@ -12,7 +12,7 @@ const searchQuery = (searchKeyword) => {
     }
   }, 
   _id, 
-  destination, 
+  src, 
   postedBy -> {
     _id, 
     userName, 
@@ -38,7 +38,7 @@ const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
     }
   },
   _id,
-  destination,
+  src,
   postedBy-> {
     _id,
     userName,
