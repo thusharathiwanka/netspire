@@ -23,23 +23,27 @@ const searchQuery = (searchKeyword) => {
   return query;
 };
 
-const postsQuery = () => {
-  const query = `*[_type == "post"] | order(_createdAt desc) {
+const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
   image {
-      asset -> {
-        url
-      }
-    }, _id, destination, postedBy -> {
-      _id, userName, image
+    asset-> {
+      url
+    }
+  },
+  _id,
+  destination,
+  postedBy-> {
+    _id,
+    userName,
+    image
+  },
+  save[] {
+    _key,
+    postedBy-> {
+      _id,
+      userName,
+      image
     },
-    save[] {
-      _key, postedBy -> {
-        _id, userName, image
-      },
-    },
-  }`;
-
-  return query;
-};
+  },
+}`;
 
 export { userQuery, searchQuery, postsQuery };
