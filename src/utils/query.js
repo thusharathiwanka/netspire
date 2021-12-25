@@ -33,20 +33,20 @@ const searchQuery = (searchKeyword) => {
 
 const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
   image {
-    asset-> {
+    asset -> {
       url
     }
   },
   _id,
   src,
-  postedBy-> {
+  postedBy -> {
     _id,
     userName,
     image
   },
   save[] {
     _key,
-    postedBy-> {
+    postedBy -> {
       _id,
       userName,
       image
@@ -54,4 +54,67 @@ const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
   },
 }`;
 
-export { userQuery, searchQuery, postsQuery };
+const postDetailQuery = (postId) => {
+  const query = `*[_type == "post" && _id == '${postId}']{
+    image {
+      asset -> {
+        url
+      }
+    },
+    _id,
+    title, 
+    description,
+    category,
+    src,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+   save[] {
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+    comments[] {
+      comment,
+      _key,
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    }
+  }`;
+  return query;
+};
+
+const postDetailMorePinQuery = (post) => {
+  const query = `*[_type == "post" && category == '${post.category}' && _id != '${post._id}' ]{
+    image {
+      asset -> {
+        url
+      }
+    },
+    _id,
+    destination,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+    save[] {
+      _key,
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+  }`;
+  return query;
+};
+
+export { userQuery, searchQuery, postsQuery, postDetailQuery, postDetailMorePinQuery };
