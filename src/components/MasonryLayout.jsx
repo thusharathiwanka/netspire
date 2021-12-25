@@ -14,7 +14,7 @@ const breakPoints = {
 const MasonryLayout = ({ posts }) => {
   return (
     <Masonry className="flex animate-slide-fwd" breakpointCols={breakPoints}>
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <Post key={post._id} post={post} />
       ))}
     </Masonry>
