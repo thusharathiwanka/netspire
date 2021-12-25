@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Feed from "../components/Feed";
 import Navbar from "../components/Navbar";
 import NewPost from "./NewPost";
-import PostDetail from "../components/PostDetail";
+import PostDetail from "../pages/PostDetail";
 import Search from "../components/Search";
 
 const Posts = ({ user }) => {

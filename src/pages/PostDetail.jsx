@@ -4,8 +4,8 @@ import { RiShareBoxLine } from "react-icons/ri";
 import { Link, useParams } from "react-router-dom";
 import { v4 } from "uuid";
 
-import MasonryLayout from "./MasonryLayout";
-import Spinner from "./Spinner";
+import MasonryLayout from "../components/MasonryLayout";
+import Spinner from "../components/Spinner";
 
 import { client, urlFor } from "../config/sanity.client";
 import { postDetailMorePinQuery, postDetailQuery } from "../utils/query";

@@ -2,20 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import { RiHomeLine } from "react-icons/ri";
 
 import logo from "../assets/images/netspire-logo-blue.png";
+import categories from "../utils/data";
 
 const Sidebar = ({ user, toggleSidebar }) => {
   const isNotActiveStyles =
     "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
   const isActiveStyles =
     "flex items-center px-5 gap-3 font-bold border-r-4 border-black text-gray-500 transition-all duration-200 ease-in-out capitalize";
-  const categories = [
-    { name: "animals" },
-    { name: "wallpapers" },
-    { name: "photography" },
-    { name: "gaming" },
-    { name: "coding" },
-    { name: "other" }
-  ];
 
   return (
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-280 hide-scrollbar">
@@ -41,6 +34,11 @@ const Sidebar = ({ user, toggleSidebar }) => {
               className={({ isActive }) => (isActive ? isActiveStyles : isNotActiveStyles)}
               onClick={() => toggleSidebar(false)}
               key={index}>
+              <img
+                src={category.image}
+                alt="category-image"
+                className="w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
