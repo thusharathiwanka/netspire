@@ -116,7 +116,7 @@ const Post = ({ post: { image, _id, save, src, postedBy } }) => {
           </div>
         )}
       </div>
-      <Link to={`user/${postedBy?._id}`} className="flex gap-2 mt-2 items-center">
+      <Link to={`/user/${postedBy?._id}`} className="flex gap-2 mt-2 items-center">
         <img src={postedBy?.image} alt="user" className="w-8 h-8 rounded-full object-cover" />
         <p className="font-medium capitalize">{postedBy?.userName}</p>
       </Link>
