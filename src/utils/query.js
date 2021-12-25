@@ -117,4 +117,62 @@ const postDetailMorePinQuery = (post) => {
   return query;
 };
 
-export { userQuery, searchQuery, postsQuery, postDetailQuery, postDetailMorePinQuery };
+const userCreatedPostsQuery = (userId) => {
+  const query = `*[ _type == 'post' && userId == '${userId}'] | order(_createdAt desc){
+    image {
+      asset -> {
+        url
+      }
+    },
+    _id,
+    src,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+    save[] {
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+  }`;
+  return query;
+};
+
+const userSavedPostsQuery = (userId) => {
+  const query = `*[_type == 'post' && '${userId}' in save[].userId ] | order(_createdAt desc) {
+    image{
+      asset -> {
+        url
+      }
+    },
+    _id,
+    src,
+    postedBy -> {
+      _id,
+      userName,
+      image
+    },
+    save[] {
+      postedBy -> {
+        _id,
+        userName,
+        image
+      },
+    },
+  }`;
+  return query;
+};
+
+export {
+  userQuery,
+  searchQuery,
+  postsQuery,
+  postDetailQuery,
+  postDetailMorePinQuery,
+  userCreatedPostsQuery,
+  userSavedPostsQuery
+};
