@@ -13,7 +13,7 @@ const Post = ({ post: { image, _id, save, src, postedBy } }) => {
 
   const navigate = useNavigate();
   const user = getUserInfo();
-  const alreadySaved = save?.filter((item) => item.postedBy._id === user.googleId)?.length;
+  const alreadySaved = save?.filter((item) => item.postedBy._id === user?.googleId)?.length;
 
   const savePost = (id) => {
     if (!alreadySaved) {
