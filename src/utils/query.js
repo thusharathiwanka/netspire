@@ -5,7 +5,7 @@ const userQuery = (userId) => {
 };
 
 const searchQuery = (searchKeyword) => {
-  const query = `*[_type == "post" && title match == "${searchKeyword}*" || category match == "${searchKeyword}*" || about match == "${searchKeyword}*"] {
+  const query = `*[_type == "post" && title match "${searchKeyword}*" || category match "${searchKeyword}*" || description match "${searchKeyword}*"] {
   image {
     asset -> {
       url

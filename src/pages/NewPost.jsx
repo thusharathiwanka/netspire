@@ -11,7 +11,6 @@ import categories from "../utils/data";
 const NewPost = ({ user }) => {
   const [post, setPost] = useState({
     title: "",
-    about: "",
     description: "",
     src: "",
     category: "",
@@ -66,12 +65,12 @@ const NewPost = ({ user }) => {
   const savePost = () => {
     setSaving(false);
 
-    if (post.title && post.about && post.src && post.image?._id && post.category) {
+    if (post.title && post.description && post.src && post.image?._id && post.category) {
       setSaving(true);
       const doc = {
         _type: "post",
         title: post.title,
-        description: post.about,
+        description: post.description,
         src: post.src,
         image: {
           _type: "image",
@@ -169,8 +168,8 @@ const NewPost = ({ user }) => {
           )}
           <input
             type="text"
-            value={post.about}
-            onChange={(e) => setPost({ ...post, about: e.target.value })}
+            value={post.description}
+            onChange={(e) => setPost({ ...post, description: e.target.value })}
             placeholder="Tell everyone about your post"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />

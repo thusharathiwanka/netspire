@@ -34,6 +34,9 @@ const Feed = () => {
   if (loading) {
     return <Spinner message={`We are adding ${ideaName} posts to your feed!`} />;
   }
+
+  if (!posts?.length) return <h2 className="text-center text-lg">No posts available</h2>;
+
   return <div>{posts && <MasonryLayout posts={posts} />}</div>;
 };
 
