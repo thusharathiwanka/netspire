@@ -91,7 +91,7 @@ const UserProfile = () => {
           </div>
           <h1 className="font-bold text-3xl text-center mt-3">{userInfo.userName}</h1>
           <div className="absolute top-0 z-1 right-0 p-2">
-            {id === user.googleId && (
+            {id === user?.googleId && (
               <GoogleLogout
                 clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
                 render={(renderProps) => (
