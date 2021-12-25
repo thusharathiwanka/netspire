@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Thushara Thiwanka <thusharathiwanka123@gmail.com>",
-  "license": "UNLICENSED",
+  "author": "Thushara Thiwanka",
+  "license": "MIT",
   "scripts": {
     "start": "sanity start",
     "build": "sanity build"
@@ -24,6 +24,5 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
-  },
-  "devDependencies": {}
+  }
 }
