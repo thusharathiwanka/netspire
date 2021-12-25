@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { RiAddFill, RiSearch2Line } from "react-icons/ri";
 
-const Navbar = ({ user, searchQuery, setSearchQuery }) => {
+const Navbar = ({ user, searchKeyword, setSearchKeyword }) => {
   const navigate = useNavigate();
 
   return (
@@ -12,8 +12,8 @@ const Navbar = ({ user, searchQuery, setSearchQuery }) => {
           type="text"
           name="search"
           id="search"
-          onChange={(e) => setSearchQuery(e.target.value)}
-          value={searchQuery}
+          onChange={(e) => setSearchKeyword(e.target.value)}
+          value={searchKeyword}
           placeholder="Search"
           onFocus={() => navigate("/search")}
           className="p-2 w-full bg-white outline-none"
