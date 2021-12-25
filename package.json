@@ -1,9 +1,10 @@
 {
   "name": "netspire",
   "version": "0.1.0",
-  "description": "The Social Network",
+  "description": "The Picture Network",
   "keywords": [
-    "social",
+    "picture",
+    "pictures",
     "network",
     "netspire"
   ],
