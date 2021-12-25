@@ -99,7 +99,7 @@ const postDetailMorePinQuery = (post) => {
       }
     },
     _id,
-    destination,
+    src,
     postedBy -> {
       _id,
       userName,

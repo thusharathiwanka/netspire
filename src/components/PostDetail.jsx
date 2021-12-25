@@ -24,10 +24,10 @@ const PostDetail = ({ user }) => {
     if (query) {
       client.fetch(`${query}`).then((data) => {
         setPostDetail(data[0]);
-        console.log(data);
+
         if (data[0]) {
-          const query1 = postDetailMorePinQuery(data[0]);
-          client.fetch(query1).then((res) => {
+          const secondQuery = postDetailMorePinQuery(data[0]);
+          client.fetch(secondQuery).then((res) => {
             setPosts(res);
           });
         }
@@ -66,8 +66,8 @@ const PostDetail = ({ user }) => {
     <>
       {postDetail && (
         <div
-          className="flex xl:flex-row flex-col m-auto bg-white"
-          style={{ maxWidth: "1570px", borderRadius: "32px" }}>
+          className="flex xl:flex-row flex-col m-auto bg-white rounded-3xl"
+          style={{ maxWidth: "1570px" }}>
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-3xl"
