@@ -1,6 +1,14 @@
 {
   "name": "netspire",
   "version": "0.1.0",
+  "description": "The Social Network",
+  "keywords": [
+    "social",
+    "network",
+    "netspire"
+  ],
+  "author": "Thushara Thiwanka",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@sanity/client": "^2.23.2",
@@ -21,9 +29,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint .",
+    "lint": "eslint ./",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +61,12 @@
     "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
-    "tailwindcss": "^3.0.7"
+    "tailwindcss": "^3.0.7",
+    "husky": "^7.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
