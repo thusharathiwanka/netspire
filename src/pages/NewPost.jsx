@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineCloudUpload } from "react-icons/ai";
+import { RiUploadCloud2Line } from "react-icons/ri";
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 import Spinner from "../components/Spinner";
@@ -12,6 +12,7 @@ const NewPost = ({ user }) => {
   const [post, setPost] = useState({
     title: "",
     about: "",
+    description: "",
     src: "",
     category: "",
     image: ""
@@ -19,6 +20,7 @@ const NewPost = ({ user }) => {
   const [wrongImageType, setWrongImageType] = useState();
   const [loading, setLoading] = useState(false);
   const [isFieldsFilled, setIsFieldsFilled] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   const navigate = useNavigate();
 
@@ -62,11 +64,14 @@ const NewPost = ({ user }) => {
   };
 
   const savePost = () => {
+    setSaving(false);
+
     if (post.title && post.about && post.src && post.image?._id && post.category) {
+      setSaving(true);
       const doc = {
         _type: "post",
         title: post.title,
-        about: post.about,
+        description: post.about,
         src: post.src,
         image: {
           _type: "image",
@@ -82,19 +87,22 @@ const NewPost = ({ user }) => {
         },
         category: post.category
       };
-      client
+      return client
         .create(doc)
         .then(() => {
           navigate("/");
         })
-        .catch((err) => console.log(err));
-    } else {
-      setIsFieldsFilled(true);
-
-      setTimeout(() => {
-        setIsFieldsFilled(false);
-      }, 2000);
+        .catch((err) => {
+          setSaving(false);
+          console.log(err);
+        });
     }
+
+    setIsFieldsFilled(true);
+
+    setTimeout(() => {
+      setIsFieldsFilled(false);
+    }, 2000);
   };
 
   return (
@@ -116,7 +124,7 @@ const NewPost = ({ user }) => {
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col justify-center items-center">
                     <p className="font-bold text-2xl">
-                      <AiOutlineCloudUpload />
+                      <RiUploadCloud2Line />
                     </p>
                     <p className="text-lg">Click here to upload</p>
                   </div>
@@ -136,7 +144,7 @@ const NewPost = ({ user }) => {
                 <button
                   type="button"
                   className="absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-none hover:shadow-md hover:bg-red-500 hover:text-white transition-all duration-500 ease-in-out"
-                  onClick={() => setPost({ ...post, src: null })}>
+                  onClick={() => setPost({ ...post, image: null })}>
                   <RiDeleteBin7Line />
                 </button>
               </div>
@@ -161,7 +169,7 @@ const NewPost = ({ user }) => {
             type="text"
             value={post.about}
             onChange={(e) => setPost({ ...post, about: e.target.value })}
-            placeholder="Tell everyone what your Pin is about"
+            placeholder="Tell everyone about your post"
             className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />
           <input
@@ -198,7 +206,7 @@ const NewPost = ({ user }) => {
                 type="button"
                 onClick={savePost}
                 className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none">
-                Save Pin
+                {saving ? "Saving..." : "Save Post"}
               </button>
             </div>
           </div>
