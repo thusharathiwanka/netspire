@@ -99,7 +99,7 @@ const PostDetail = ({ user }) => {
               <p className="mt-3">{postDetail.description}</p>
             </div>
             <Link
-              to={`/user-profile/${postDetail?.postedBy._id}`}
+              to={`/user/${postDetail?.postedBy._id}`}
               className="flex gap-2 mt-5 items-center bg-white rounded-lg ">
               <img
                 src={postDetail?.postedBy.image}
