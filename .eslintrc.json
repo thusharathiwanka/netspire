@@ -5,7 +5,6 @@
     "node": true
   },
   "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
-  "ignorePatterns": "node_modules/",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
