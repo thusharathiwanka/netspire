@@ -108,13 +108,15 @@ const NewPost = ({ user }) => {
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {isFieldsFilled && (
-        <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in ">
+        <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in">
           Please add all fields.
         </p>
       )}
-      <div className=" flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5  w-full">
-        <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
-          <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
+      <div
+        className=" flex lg:flex-row flex-col justify-center items-center bg-white p-5 w-full rounded-3xl"
+        style={{ maxWidth: "1570px" }}>
+        <div className="bg-secondaryColor p-3 flex flex-0.7 w-full lg:m-5">
+          <div className="flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
             {loading && <Spinner />}
             {wrongImageType && (
               <p className="text-center">Please select a file with accepted file type.</p>
@@ -126,7 +128,7 @@ const NewPost = ({ user }) => {
                     <p className="font-bold text-2xl">
                       <RiUploadCloud2Line />
                     </p>
-                    <p className="text-lg">Click here to upload</p>
+                    <p className="text-lg text-center">Click here to upload</p>
                   </div>
                   <p className="mt-32 text-gray-400 text-center">
                     Use high-quality JPG, JPEG, SVG, PNG, GIF or TIFF less than 20MB
@@ -151,7 +153,7 @@ const NewPost = ({ user }) => {
             )}
           </div>
         </div>
-        <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-full">
+        <div className="flex flex-1 flex-col gap-6 lg:pl-6 lg:pr-6 mt-5 w-full">
           <input
             type="text"
             value={post.title}
