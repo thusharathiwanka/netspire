@@ -2,7 +2,7 @@
 
 # Netspire
 
-Netspire - The picture network is image sharing platform. which provides a platform for users to share their pictures with other users. users can comment on each picture and save, download and like each picture.
+Netspire - The picture network is image sharing platform. which provides a platform for users to share their pictures with other users. users can comment on each picture and download and save each picture.
 
 ## Technologies
 
@@ -20,8 +20,9 @@ Netspire - The picture network is image sharing platform. which provides a platf
 
   1. ### `npm install` - install frontend dependencies
   2. ### `cd api && npm install` - install backend dependencies
-  3. ### `npm start` - start the frontend
-  4. ### `cd api && sanity start` - start the sanity server
+  3. ### setup the environment variables inside .env.examples file and rename file to .env
+  4. ### `npm start` - start the frontend
+  5. ### `cd api && sanity start` - start the sanity server
 
 ### Available Scripts
 
