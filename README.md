@@ -20,8 +20,9 @@ Netspire - The picture network is image sharing platform. which provides a platf
 
   1. ### `npm install` - install frontend dependencies
   2. ### `cd api && npm install` - install backend dependencies
-  3. ### `npm start` - start the frontend
-  4. ### `cd api && sanity start` - start the sanity server
+  3. ### setup the environment variables and rename .env.examples file to .env
+  4. ### `npm start` - start the frontend
+  5. ### `cd api && sanity start` - start the sanity server
 
 ### Available Scripts
 
