@@ -12,11 +12,11 @@ const categories = [
     image: "https://i.pinimg.com/236x/03/48/b6/0348b65919fcbe1e4f559dc4feb0ee13.jpg"
   },
   {
-    name: "websites",
+    name: "technology",
     image: "https://i.pinimg.com/750x/66/b1/29/66b1296d36598122e6a4c5452b5a7149.jpg"
   },
   {
-    name: "photo",
+    name: "photography",
     image: "https://i.pinimg.com/236x/72/8c/b4/728cb43f48ca762a75da645c121e5c57.jpg"
   },
   {
@@ -40,12 +40,12 @@ const categories = [
     image: "https://i.pinimg.com/236x/46/7c/17/467c17277badb00b638f8ec4da89a358.jpg"
   },
   {
-    name: "cats",
+    name: "animals",
     image: "https://i.pinimg.com/236x/6c/3c/52/6c3c529e8dadc7cffc4fddedd4caabe1.jpg"
   },
   {
-    name: "dogs",
-    image: "https://i.pinimg.com/236x/1b/c8/30/1bc83077e363db1a394bf6a64b071e9f.jpg"
+    name: "architecture",
+    image: "https://i.pinimg.com/564x/f6/f9/83/f6f98338a91a1eedf71391fe948a3fdc.jpg"
   },
   {
     name: "others",
