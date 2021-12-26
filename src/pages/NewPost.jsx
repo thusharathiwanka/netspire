@@ -206,7 +206,7 @@ const NewPost = ({ user }) => {
               <button
                 type="button"
                 onClick={savePost}
-                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none">
+                className="bg-accent text-white font-bold p-2 rounded-full w-28 outline-none">
                 {saving ? "Saving..." : "Save Post"}
               </button>
             </div>

@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { RiHomeLine } from "react-icons/ri";
 
 import logo from "../assets/images/netspire-logo-blue.png";
+
 import categories from "../utils/data";
 
 const Sidebar = ({ user, toggleSidebar }) => {

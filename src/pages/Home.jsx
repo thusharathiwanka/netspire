@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { Link, Route, Routes } from "react-router-dom";
 
-import Sidebar from "../components/Sidebar";
 import Posts from "./Posts";
+import Sidebar from "../components/Sidebar";
 import UserProfile from "./UserProfile";
+
 import logo from "../assets/images/netspire-logo-blue.png";
+
 import { client } from "../config/sanity.client";
-import { userQuery } from "../utils/query";
 import { getUserInfo } from "../utils/fetchLocalStorage";
+import { userQuery } from "../utils/query";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
