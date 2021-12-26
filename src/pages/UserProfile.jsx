@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GoogleLogout } from "react-google-login";
 import { RiLogoutCircleRLine } from "react-icons/ri";
@@ -6,6 +6,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import MasonryLayout from "../components/MasonryLayout";
 import Spinner from "../components/Spinner";
 
+import { AuthContext } from "../contexts/AuthContext";
 import { client } from "../config/sanity.client";
 import { getUserInfo } from "../utils/fetchLocalStorage";
 import { userCreatedPostsQuery, userQuery, userSavedPostsQuery } from "../utils/query";
@@ -15,6 +16,8 @@ const notActiveBtnStyles =
   "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
 
 const UserProfile = () => {
+  const { setIsSigned } = useContext(AuthContext);
+
   const [userInfo, setUserInfo] = useState();
   const [posts, setPosts] = useState();
   const [text, setText] = useState("Created");
@@ -75,6 +78,7 @@ const UserProfile = () => {
 
   const logout = () => {
     localStorage.clear();
+    setIsSigned(false);
     navigate("/login");
   };
 
