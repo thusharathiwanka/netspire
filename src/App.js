@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 import { getUserInfo } from "./utils/fetchLocalStorage";
 

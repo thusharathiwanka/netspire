@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { RiLogoutCircleRLine } from "react-icons/ri";
 import { GoogleLogout } from "react-google-login";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 import MasonryLayout from "../components/MasonryLayout";
 import Spinner from "../components/Spinner";
@@ -10,7 +10,7 @@ import { client } from "../config/sanity.client";
 import { getUserInfo } from "../utils/fetchLocalStorage";
 import { userCreatedPostsQuery, userQuery, userSavedPostsQuery } from "../utils/query";
 
-const activeBtnStyles = "bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none";
+const activeBtnStyles = "bg-accent text-white font-bold p-2 rounded-full w-24 outline-none";
 const notActiveBtnStyles =
   "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
 
@@ -19,6 +19,7 @@ const UserProfile = () => {
   const [posts, setPosts] = useState();
   const [text, setText] = useState("Created");
   const [activeBtn, setActiveBtn] = useState("created");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -26,46 +27,54 @@ const UserProfile = () => {
   const user = getUserInfo();
 
   useEffect(() => {
+    setLoading(true);
     const query = userQuery(id);
     client
       .fetch(query)
       .then((data) => {
         setUserInfo(data[0]);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   }, [id]);
 
   useEffect(() => {
+    setLoading(true);
+
     if (text === "Created") {
       const createdPinsQuery = userCreatedPostsQuery(id);
 
-      client
+      return client
         .fetch(createdPinsQuery)
         .then((data) => {
           setPosts(data);
+          setLoading(false);
         })
         .catch((error) => {
           console.log(error);
-        });
-    } else {
-      const savedPinsQuery = userSavedPostsQuery(id);
-
-      client
-        .fetch(savedPinsQuery)
-        .then((data) => {
-          setPosts(data);
-        })
-        .catch((error) => {
-          console.log(error);
+          setLoading(false);
         });
     }
+
+    const savedPinsQuery = userSavedPostsQuery(id);
+
+    return client
+      .fetch(savedPinsQuery)
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, [text, id]);
 
   const logout = () => {
     localStorage.clear();
-
     navigate("/login");
   };
 
@@ -129,14 +138,15 @@ const UserProfile = () => {
             Saved
           </button>
         </div>
-
-        <div>
-          <MasonryLayout posts={posts} />
-        </div>
-
-        {posts?.length === 0 && (
+        {posts?.length === 0 ? (
           <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
-            No Pins Found!
+            No posts found!
+          </div>
+        ) : loading ? (
+          <Spinner message="Loading posts" />
+        ) : (
+          <div>
+            <MasonryLayout posts={posts} />
           </div>
         )}
       </div>

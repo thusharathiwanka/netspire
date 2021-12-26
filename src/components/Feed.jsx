@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
+
 import { client } from "../config/sanity.client";
 import { postsQuery, searchQuery } from "../utils/query";
 
@@ -13,8 +14,9 @@ const Feed = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    setLoading(true);
+
     if (id) {
-      setLoading(true);
       const query = searchQuery(id);
       return client.fetch(query).then((data) => {
         setPosts(data);
@@ -22,11 +24,16 @@ const Feed = () => {
       });
     }
 
-    setLoading(true);
-    client.fetch(postsQuery).then((data) => {
-      setPosts(data);
-      setLoading(false);
-    });
+    client
+      .fetch(postsQuery)
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, [id]);
 
   const ideaName = id || "new";

@@ -11,8 +11,9 @@ const Search = ({ searchKeyword }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     if (searchKeyword !== "") {
-      setLoading(true);
       const query = searchQuery(searchKeyword.toLowerCase());
       return client
         .fetch(query)
