@@ -2,7 +2,7 @@
 
 # Netspire
 
-Netspire - The picture network is image sharing platform. which provides a platform for users to share their pictures with other users. users can comment on each picture and download and save each picture.
+Netspire - The picture network is image sharing platform inspired by Pinterest. which provides a platform for users to share their pictures with other users. users can comment on each picture and download and save each picture.
 
 ## Technologies
 
